@@ -72,7 +72,7 @@ class CoolMasterNet():
         return {
             key: unit
             for unit, key in await asyncio.gather(
-                *(CoolMasterNetUnit.create(self, line[0:6], line) for line in status_lines))
+                *(CoolMasterNetUnit.create(self, line[0:3], line) for line in status_lines))
         }
 
 
