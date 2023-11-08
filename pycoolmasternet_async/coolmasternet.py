@@ -89,7 +89,7 @@ class CoolMasterNetUnit():
     @classmethod
     async def create(cls, bridge, unit_id, raw=None):
         if raw is None:
-            raw = (await bridge._make_request(f"ls2 {unit_id}")).strip()   
+            raw = (await bridge._make_request(f"stat2 {unit_id}")).strip()   
         swing_raw = ((await bridge._make_request(f"query {unit_id} s")).strip() 
             if bridge._swing_support else "")
         return CoolMasterNetUnit(bridge, unit_id, raw, swing_raw), unit_id
